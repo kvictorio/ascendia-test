@@ -19,7 +19,7 @@ REST API that handles the requests made for the Construction Site Logins. Forwar
 
 ## AWS Cognito
 
-Uses User pools to handle the authenticatoni. Returns with an authentication token that will authorize the login for the construction employees
+Uses User pools to handle the authentication. Returns with an authentication token that will authorize the login for the construction employees
 
 ## Lambda
 
