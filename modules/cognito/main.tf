@@ -14,7 +14,7 @@ resource "aws_cognito_user_pool" "main" {
   tags = var.tags
 }
 
-resource "aws_c1ognito_user_pool_client" "app_client" {
+resource "aws_cognito_user_pool_client" "app_client" {
   name         = "${var.user_pool_name}-app-client"
   user_pool_id = aws_cognito_user_pool.main.id
 

@@ -6,7 +6,7 @@ module "lambda_sign_in" {
   log_group_name        = module.cloudwatch_log_group_login.log_group_name
   source_code_path      = "assets/sign-in.py"
   environment_variables = {
-    S3_BUCKET = module.s3_pdf_storage.bucket_name
+    S3_BUCKET = module.s3_pdf_storage_login.bucket_name
   }
   tags                 = {
     Purpose = "Handle SignIn Events"

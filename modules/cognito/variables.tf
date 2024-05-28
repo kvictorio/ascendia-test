@@ -4,14 +4,14 @@ variable "user_pool_name" {
 }
 
 variable "password_policy" {
-  type        = map(any)
+  type        = map(string)
   description = "Password policy for the Cognito user pool"
   default     = {
-    minimum_length    = 8
-    require_lowercase = true
-    require_numbers   = true
-    require_symbols   = true
-    require_uppercase = true
+    minimum_length    = "8"
+    require_lowercase = "true"
+    require_numbers   = "true"
+    require_symbols   = "true"
+    require_uppercase = "true"
   }
 }
 
