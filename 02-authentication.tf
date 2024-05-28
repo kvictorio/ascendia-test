@@ -18,10 +18,6 @@ module "cognito" {
     require_uppercase = true
   }
   auto_verified_attributes = ["email"]
-  tags                 = {
-    "Environment" = "dev"
-    "Purpose"     = "User Authentication"
-  }
 }
 
 module "api_gateway" {

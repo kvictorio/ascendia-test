@@ -1,27 +1,37 @@
+## Default Tags
+
+variable "tags" {
+  type        = map(string)
+  description = "Default Tags"
+  default     = {
+    Environment    = "dev"
+    Platform       = "Construction Site"
+  }
+}
+
 ## API Gateway Vars
 variable "api_name" {
   type        = string
   description = "The name of the API Gateway API"
-}
-
-variable "cognito_user_pool_arn" {
-  type        = string
-  description = "The ARN of the Cognito User Pool for authentication"
+  default     = "construction-api"
 }
 
 variable "s3_bucket_name" {
   type        = string
   description = "The name of the S3 bucket to store the static login page"
+  default     = "construction-s3bucket"
 }
 
 variable "custom_domain_name" {
   type        = string
   description = "custom domain name"
+  default     = "construction-domain-name"
 }
 
 variable "ssl_certificate_arn" {
   type        = string
   description = "SSL Certificate"
+  default     = "construction-sslcert"
 }
 
 ## Cognito Vars
@@ -29,6 +39,7 @@ variable "ssl_certificate_arn" {
 variable "user_pool_name" {
   type        = string
   description = "The name of the Cognito user pool"
+  default     = "cognito-userpoolname"
 }
 
 variable "password_policy" {
@@ -54,11 +65,12 @@ variable "auto_verified_attributes" {
 variable "log_group_name" {
   type        = string
   description = "The name of the CloudWatch log group"
+  default     = "construction-site-loggroup"
 }
 
 variable "retention_in_days" {
   type        = number
-  default     = 30
+  default     = 90
   description = "The number of days to retain log events in the specified log group"
 }
 
@@ -67,29 +79,32 @@ variable "retention_in_days" {
 variable "function_name" {
   type        = string
   description = "The name of the Lambda function"
+  default     = "construction-site-lambda"
 }
 
 variable "handler" {
   type        = string
   description = "The handler for the Lambda function"
+  default     = "handler.handler"
 }
 
 variable "runtime" {
   type        = string
   description = "The runtime environment for the Lambda function"
+  default     = "python3.8"
 }
 
 variable "s3_bucket" {
   type        = string
-  default     = ""
+  default     = "s3_bucket"
   description = "S3 bucket to which the Lambda function should have access"
 }
 
-variable "sns_topic_arn" {
-  type        = string
-  default     = ""
-  description = "ARN of the SNS topic for sending notifications"
-}
+# variable "sns_topic_arn" {
+#   type        = string
+#   default     = "Logout-Event"
+#   description = "ARN of the SNS topic for sending notifications"
+# }
 
 variable "source_code_path" {
   type        = string
@@ -117,7 +132,7 @@ variable "enable_versioning" {
 variable "pdf_notification_email" {
   type        = string
   default     = ""
-  description = "Email address to notify when a PDF is uploaded. Leave empty if not applicable."
+  description = "Email address to notify when a PDF is uploaded."
 }
 
 ## SES Vars
@@ -125,23 +140,26 @@ variable "pdf_notification_email" {
 variable "from_email" {
   type        = string
   description = "The email address used as the sender in SES."
+  default     = "manager@ascendia.com"
 }
 
-variable "lambda_function_arn" {
-  type        = string
-  description = "ARN of the Lambda function to be triggered by SES for processing emails."
-}
+# variable "lambda_function_arn" {
+#   type        = string
+#   description = "ARN of the Lambda function to be triggered by SES for processing emails."
+#   default = "construcitn"
+# }
 
 ## SNS Vars
 
 variable "topic_name" {
   type        = string
   description = "The name of the SNS topic"
+  default     = "construction-site-logout"
 }
 
 variable "display_name" {
   type        = string
-  default     = ""
+  default     = "AutoMailer"
   description = "The display name for the SMS messages sent from this SNS topic"
 }
 

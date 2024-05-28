@@ -1,8 +1,8 @@
 module "ses_email_notification" {
   source = "./modules/ses"  
 
-  from_email      = "sender@example.com"
-  manager_email   = "manager@example.com"
+  from_email      = "auto-email@ascendia.com"
+  manager_email   = "manager@ascendia.com"
   s3_bucket_name  = module.s3_pdf_storage_login.bucket_name
 }
 
@@ -20,5 +20,5 @@ module "sns_logout_notifications" {
 module "s3_pdf_storage_login" {
   source                 = "./modules/s3"
   bucket_name            = "construction-site-pdfs"
-  pdf_notification_email = "site.supervisor@sample.com"
+  pdf_notification_email = "manager@ascendia.com"
 }

@@ -9,7 +9,8 @@ module "lambda_sign_in" {
     S3_BUCKET = module.s3_pdf_storage_login.bucket_name
   }
   tags                 = {
-    Purpose = "Handle SignIn Events"
+    Environment = "dev"
+    Purpose     = "Handle SignIn Events"
   }
 }
 
@@ -22,6 +23,7 @@ module "lambda_sign_out" {
   sns_topic_arn         = module.sns_logout_notifications.sns_topic_arn
   source_code_path      = "assets/sign-out.py"
   tags                 = {
-    Purpose = "Handle SignOut Events"
+    Environment = "dev"
+    Purpose     = "Handle SignOut Events"
   }
 }
