@@ -10,7 +10,6 @@ def handler(event, context):
     pdf_content = create_pdf(user_details)
     pdf_filename = f"{user_details['user_id']}.pdf"
 
-    # Save PDF to S3
     s3.put_object(
         Bucket=os.environ['S3_BUCKET'],
         Key=f"documents/{pdf_filename}",
@@ -18,7 +17,6 @@ def handler(event, context):
         ContentType='application/pdf'
     )
 
-    # Send an email with the PDF link
     response = ses.send_email(
         Source='no-reply@example.com',
         Destination={

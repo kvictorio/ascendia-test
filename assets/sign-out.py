@@ -7,7 +7,6 @@ sns = boto3.client('sns')
 def handler(event, context):
     user_details = event['details']
 
-    # Send an SMS to the site manager
     response = sns.publish(
         PhoneNumber=os.environ['MANAGER_PHONE_NUMBER'],
         Message=f"User {user_details['user_name']} has signed out from the construction site."

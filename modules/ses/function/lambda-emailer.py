@@ -3,14 +3,11 @@ import os
 from botocore.exceptions import ClientError
 
 def lambda_handler(event, context):
-    # Initialize SES client
     ses_client = boto3.client('ses')
     
-    # Extract bucket name and file key from the S3 event
     bucket_name = event['Records'][0]['s3']['bucket']['name']
     key = event['Records'][0]['s3']['object']['key']
     
-    # Email details
     SENDER = os.environ.get('FROM_EMAIL')
     RECIPIENT = os.environ.get('TO_EMAIL')
     SUBJECT = "New PDF File Uploaded to S3"
@@ -19,9 +16,7 @@ def lambda_handler(event, context):
                  f"File: {key}\n")
     CHARSET = "UTF-8"
     
-    # Try to send the email.
     try:
-        # Provide the contents of the email.
         response = ses_client.send_email(
             Destination={
                 'ToAddresses': [
