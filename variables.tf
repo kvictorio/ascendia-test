@@ -100,12 +100,6 @@ variable "s3_bucket" {
   description = "S3 bucket to which the Lambda function should have access"
 }
 
-# variable "sns_topic_arn" {
-#   type        = string
-#   default     = "Logout-Event"
-#   description = "ARN of the SNS topic for sending notifications"
-# }
-
 variable "source_code_path" {
   type        = string
   description = "Path to the Lambda function's source code"
@@ -142,12 +136,6 @@ variable "from_email" {
   description = "The email address used as the sender in SES."
   default     = "manager@ascendia.com"
 }
-
-# variable "lambda_function_arn" {
-#   type        = string
-#   description = "ARN of the Lambda function to be triggered by SES for processing emails."
-#   default = "construcitn"
-# }
 
 ## SNS Vars
 
