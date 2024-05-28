@@ -1,5 +1,5 @@
-# ascendia-test
-testing for ascendia
+# Ascendia-Test
+Testing for Ascendia
 
 # High Level Design for the Construction Site API
 ![AscendiaHLD](./assets/AscendiaHLD.jpg)
